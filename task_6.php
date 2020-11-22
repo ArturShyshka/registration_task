@@ -77,6 +77,7 @@
                                 "status" => "banned"
                             ]
                         ];
+
                     ?>
                     <div class="panel-container show">
                         <div class="panel-content">
