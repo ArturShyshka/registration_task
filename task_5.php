@@ -78,8 +78,8 @@
                         <div class="panel-content">
                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
                             <?php foreach ($people as $person): ?>
-                                
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+
+                            <div class="banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                 <img src="<?php echo $person['image']; ?>" alt="<?php echo $person['img_alt']; ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
                                 <div class="ml-2 mr-3">
                                     <h5 class="m-0">
