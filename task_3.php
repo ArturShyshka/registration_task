@@ -30,10 +30,37 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php 
+                        $links = [
+                            [
+                                "title" => "Главная",
+                                "href" => "example.com/",
+                                "is_link" => true
+                            ],
+                            [
+                                "title" => "PHP",
+                                "href" => "example.com/php",
+                                "is_link" => true
+                            ],
+                            [
+                                "title" => "Функции",
+                                "href" => "",
+                                "is_link" => false
+                            ]
+                        ];
+                    ?>
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
-                                <?php 
+                                <?php foreach ($links as $link): ?>
+                                    <?php if($link['is_link']): ?>
+                                        <li class="breadcrumb-item"><a href="<?php echo $link['href']; ?>"><?php echo $link['title']; ?></a></li>
+                                        <?php else: ?>
+                                            <li class="breadcrumb-item active"><?php echo $link['title']; ?></li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+
+                                <!-- ?php 
                                     $ol = ['Главная', 'PHP', 'Функции'];
                                     foreach ($ol as $key => $val) {
                                         if ($key != 2) {
@@ -41,7 +68,7 @@
                                         }
                                     }
                                     echo '<li class="breadcrumb-item active">' . $ol[2] . '</li>';
-                                ?>
+                                ?> -->
                             </ol>
                         </div>
                     </div>
