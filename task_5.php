@@ -30,84 +30,70 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php 
+                        $people = [
+                            [
+                                "image" => "img/demo/authors/sunny.png",
+                                "img_alt" => "Sunny A.",
+                                "name" => "Sunny A. (UI/UX Expert)",
+                                "smal" => "Lead Author",
+                                "twitter_link_href" => "https://twitter.com/@myplaneticket",
+                                "twitter_link_text" => "@myplaneticket",
+                                "email_link_href" => "https://wrapbootstrap.com/user/myorange",
+                                "email_link_title" => "Contact Sunny"
+                            ],
+                            [
+                                "image" => "img/demo/authors/josh.png",
+                                "img_alt" => "Jos K.",
+                                "name" => "Jos K. (ASP.NET Developer)",
+                                "smal" => "Partner &amp; Contributor",
+                                "twitter_link_href" => "https://twitter.com/@atlantez",
+                                "twitter_link_text" => "@atlantez",
+                                "email_link_href" => "https://wrapbootstrap.com/user/Walapa",
+                                "email_link_title" => "Contact Jos"
+                            ],
+                            [
+                                "image" => "img/demo/authors/jovanni.png",
+                                "img_alt" => "Jovanni Lo",
+                                "name" => "Jovanni L. (PHP Developer)",
+                                "smal" => "Partner &amp; Contributor",
+                                "twitter_link_href" => "https://twitter.com/@lodev09",
+                                "twitter_link_text" => "@lodev09",
+                                "email_link_href" => "https://wrapbootstrap.com/user/lodev09e",
+                                "email_link_title" => "Contact Jovanni"
+                            ],
+                            [
+                                "image" => "img/demo/authors/roberto.png",
+                                "img_alt" => "Roberto R.",
+                                "name" => "Roberto R. (Rails Developer)",
+                                "smal" => "Partner &amp; Contributor",
+                                "twitter_link_href" => "https://twitter.com/@sildur",
+                                "twitter_link_text" => "@sildur",
+                                "email_link_href" => "https://wrapbootstrap.com/user/sildur",
+                                "email_link_title" => "Contact Roberto"
+                            ]
+                        ];
+                    ?>
                     <div class="panel-container show">
                         <div class="panel-content">
                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
-                            <?php 
-                                $img = ['img/demo/authors/sunny.png', 'img/demo/authors/josh.png', 'img/demo/authors/jovanni.png', 'img/demo/authors/roberto.png'];
-                                $alt = ['Sunny A.', 'Jos K.', 'Jovanni Lo', 'Jovanni Lo'];
-                                $h5 = ['Sunny A. (UI/UX Expert)', 'Jos K. (ASP.NET Developer)', 'Jovanni L. (PHP Developer)', 'Roberto R. (Rails Developer)'];
-                                $smal = ['Lead Author', 'Partner &amp; Contributor', 'Partner &amp; Contributor', 'Partner &amp; Contributor'];
-                                $first_href = ['https://twitter.com/@myplaneticket', 'https://twitter.com/@atlantez', 'https://twitter.com/@lodev09', 'https://twitter.com/@sildur'];
-                                $second_href = ['https://wrapbootstrap.com/user/myorange', 'https://wrapbootstrap.com/user/Walapa', 'https://wrapbootstrap.com/user/lodev09', 'https://wrapbootstrap.com/user/sildur'];
-                                $link = ['@myplaneticket', '@atlantez', '@lodev09', '@sildur'];
-                                $title_a = ['Contact Sunny', 'Contact Jos', 'Contact Jovanni', 'Contact Roberto'];
-                                $i = 0;
-                                foreach (array_combine($img, $alt) as $i => $a) {
-                                    foreach (array_combine($h5, $smal) as $h => $s) {
-                                        foreach (array_combine($first_href, $second_href) as $fh => $sh) {
-                                            foreach (array_combine($link, $title_a) as $a => $ta) {
-                                                echo '<div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"><img src="'. $img[$i] .'" alt="'. $alt[$i] .'" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;"><div class="ml-2 mr-3"><h5 class="m-0">'. $h[$i] .'<small class="m-0 fw-300">'. $smal[$i] .'</small></h5><a href="'. $first_href[$i] .'" class="text-info fs-sm" target="_blank">'. $a[$i] .'</a> - <a href="'. $second_href[$i] .'" class="text-info fs-sm" target="_blank" title="'. $title_a[$i] .'"><i class="fal fa-envelope"></i></a></div></div>';
-                                                $i++;
-                                            }
-                                        }
-                                    }
-                                }
+                            <?php foreach ($people as $person): ?>
+                                
+                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                <img src="<?php echo $person['image']; ?>" alt="<?php echo $person['img_alt']; ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
+                                <div class="ml-2 mr-3">
+                                    <h5 class="m-0">
+                                        <?php echo $person['name']; ?>
+                                        <small class="m-0 fw-300">
+                                            <?php echo $person['smal']; ?>
+                                        </small>
+                                    </h5>
+                                    <a href="<?php echo $person['twitter_link_href']; ?>" class="text-info fs-sm" target="_blank"><?php echo $person['twitter_link_text']; ?></a> - <a href="<?php echo $person['email_link_href']; ?>" class="text-info fs-sm" target="_blank" title="<?php echo $person['email_link_title']; ?>"><i class="fal fa-envelope"></i></a>
+                                </div>
+                            </div>
 
-                            ?>
-                            <!-- <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/sunny.png" alt="Sunny A." class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Sunny A. (UI/UX Expert)
-                                        <small class="m-0 fw-300">
-                                            Lead Author
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@myplaneticket" class="text-info fs-sm" target="_blank">@myplaneticket</a> -
-                                    <a href="https://wrapbootstrap.com/user/myorange" class="text-info fs-sm" target="_blank" title="Contact Sunny"><i class="fal fa-envelope"></i></a>
-                                </div>
+                            <?php endforeach; ?>
                             </div>
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/josh.png" alt="Jos K." class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Jos K. (ASP.NET Developer)
-                                        <small class="m-0 fw-300">
-                                            Partner &amp; Contributor
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@atlantez" class="text-info fs-sm" target="_blank">@atlantez</a> -
-                                    <a href="https://wrapbootstrap.com/user/Walapa" class="text-info fs-sm" target="_blank" title="Contact Jos"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div>
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/jovanni.png" alt="Jovanni Lo" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Jovanni L. (PHP Developer)
-                                        <small class="m-0 fw-300">
-                                            Partner &amp; Contributor
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@lodev09" class="text-info fs-sm" target="_blank">@lodev09</a> -
-                                    <a href="https://wrapbootstrap.com/user/lodev09" class="text-info fs-sm" target="_blank" title="Contact Jovanni"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div>
-                            <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="img/demo/authors/roberto.png" alt="Jovanni Lo" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        Roberto R. (Rails Developer)
-                                        <small class="m-0 fw-300">
-                                            Partner &amp; Contributor
-                                        </small>
-                                    </h5>
-                                    <a href="https://twitter.com/@sildur" class="text-info fs-sm" target="_blank">@sildur</a> -
-                                    <a href="https://wrapbootstrap.com/user/sildur" class="text-info fs-sm" target="_blank" title="Contact Roberto"><i class="fal fa-envelope"></i></a>
-                                </div>
-                            </div> -->
-                        </div>
                         </div>
                     </div>
                 </div>
