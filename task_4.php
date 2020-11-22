@@ -30,23 +30,58 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php 
+                        $items = [
+                            [
+                                "title" => "My Tasks",
+                                "value" => "130 / 500",
+                                "bg" => "bg-fusion-400",
+                                "width" => "65%",
+                                "valuenow" => "65",
+                                "valuemin" => "0",
+                                "valuemax" => "100"
+                            ],
+                            [
+                                "title" => "Transfered",
+                                "value" => "440 TB",
+                                "bg" => "bg-success-500",
+                                "width" => "34%",
+                                "valuenow" => "34",
+                                "valuemin" => "0",
+                                "valuemax" => "100"
+                            ],
+                            [
+                                "title" => "Bugs Squashed",
+                                "value" => "77%",
+                                "bg" => "bg-info-400",
+                                "width" => "77%",
+                                "valuenow" => "77",
+                                "valuemin" => "0",
+                                "valuemax" => "100"
+                            ],
+                            [
+                                "title" => "User Testing",
+                                "value" => "7 days",
+                                "bg" => "bg-primary-300",
+                                "width" => "84%",
+                                "valuenow" => "84",
+                                "valuemin" => "0",
+                                "valuemax" => "100"
+                            ]
+                        ];
+                    ?>
                     <div class="panel-container show">
                         <div class="panel-content">
-                            <?php 
-                                $span = ['130 / 500', '440 TB', '77%', '7 days'];
-                                $div = ['My Tasks', 'Transfered', 'Bugs Squashed', 'User Testing'];
-                                $width_valuenow = [65, 34, 77, 84];
-                                $bg = ['bg-fusion-400', 'bg-success-500', 'bg-info-400', 'bg-primary-300'];
-
-                                $i = 0;
-                                foreach (array_combine($div, $span) as $d => $s) {
-                                    foreach (array_combine($width_valuenow, $bg) as $wid => $bg) {
-                                        echo '<div class="d-flex mt-2">'. $div[$i] .'<span class="d-inline-block ml-auto">'. $span[$i] .'</span></div>';
-                                        echo '<div class="progress progress-sm mb-3"><div class="progress-bar '. $bg .'" role="progressbar" style="width: '. $wid .'%;" aria-valuenow="'. $wid .'" aria-valuemin="0" aria-valuemax="100"></div></div>';
-                                        $i++;
-                                    }
-                                }
-                            ?>
+                            <?php foreach ($items as $item): ?>
+                            <div class="d-flex mt-2">
+                                <?php echo $item['title']; ?>
+                                <span class="d-inline-block ml-auto"><?php echo $item['value']; ?></span>
+                            </div>
+                            <div class="progress progress-sm mb-3">
+                                <div class="progress-bar <?php echo $item['bg']; ?>" role="progressbar" style="width: <?php echo $item['width']; ?>" aria-valuenow="<?php echo $item['valuenow']; ?>" aria-valuemin="<?php echo $item['valuemin']; ?>" aria-valuemax="<?php echo $item['valuemax']; ?>">
+                                </div>
+                            </div> 
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

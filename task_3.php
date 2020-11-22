@@ -59,16 +59,6 @@
                                             <li class="breadcrumb-item active"><?php echo $link['title']; ?></li>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
-
-                                <!-- ?php 
-                                    $ol = ['Главная', 'PHP', 'Функции'];
-                                    foreach ($ol as $key => $val) {
-                                        if ($key != 2) {
-                                            echo '<li class="breadcrumb-item"><a href="#">' . $val . '</a></li>';
-                                        }
-                                    }
-                                    echo '<li class="breadcrumb-item active">' . $ol[2] . '</li>';
-                                ?> -->
                             </ol>
                         </div>
                     </div>
