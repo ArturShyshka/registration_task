@@ -1,3 +1,7 @@
+<?php 
+session_start(); 
+require "function.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,10 +63,10 @@
                             </div>
                             <div class="col-xl-6 ml-auto mr-auto">
                                 <div class="card p-4 rounded-plus bg-faded">
-                                    <div class="alert alert-danger text-dark" role="alert">
-                                        <strong>Уведомление!</strong> Этот эл. адрес уже занят другим пользователем.
-                                    </div>
-                                    <form id="js-login" novalidate="" action="">
+
+                                    <?php display_flash_message("danger"); ?>
+
+                                    <form id="js-login" novalidate="" action="register.php" method="post">
                                         <div class="form-group">
                                             <label class="form-label" for="emailverify">Email</label>
                                             <input type="email" id="emailverify" class="form-control" placeholder="Эл. адрес" required>
