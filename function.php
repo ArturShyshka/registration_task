@@ -3,9 +3,9 @@ session_start();
 
 function get_user_by_email($email) {
 
-	$pdo = new PDO("mysql:host=localhost;dbname=task", 'root', 'root');
+	$pdo = new PDO("mysql:host=localhost;dbname=task", "root", "root");
 
-	$sql = "SELECT email FROM register_users WHERE email=:email";
+	$sql = "SELECT * FROM register_users WHERE email=:email";
 	$statment = $pdo->prepare($sql);
 	$statment->execute(["email" => $email]);
 	$user = $statment->fetch(PDO::FETCH_ASSOC);
@@ -15,13 +15,13 @@ function get_user_by_email($email) {
 
 function add_user($email, $password) {
 
-	$pdo = new PDO("mysql:host=localhost;dbname=task", 'root', 'root');
+	$pdo = new PDO("mysql:host=localhost;dbname=task", "root", "root");
 	
 	$sql = "INSERT INTO register_users (email, password) VALUES (:email, :password)";
 	$statment = $pdo->prepare($sql);
 	$statment->execute([
-		'email' => $email,
-		'password' => $password
+		"email" => $email,
+		"password" => $password
 	]);
 
 	return $pdo->lastInsertId();
