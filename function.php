@@ -43,4 +43,14 @@ function redirect_to($path) {
 	exit;
 };
 
+function login($email, $password) {
+	$_SESSION['email'] = $email;
+};
+
+
+
+
+
+
+
 ?>
