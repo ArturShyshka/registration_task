@@ -57,9 +57,36 @@ function login($email, $password) {
     return $login_user;  // Возвращает boolean
 };
 
+function is_not_logged() {
+
+	if(isset($SESSION['logIN']) && !empty($_SESSION['logIN'])){
+		return true;
+	} else {
+		return false;
+	}
+};
 
 
+function is_admin() {
+    if (isset($_SESSION['logIN']) && !empty($_SESSION['logIN'])){
+        $pdo = new PDO("mysql:host=localhost;dbname=task;", "root", "root");
 
+        $userMail = $_SESSION['logIN'];
+
+        $sql = "SELECT role FROM register_users WHERE email = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$userMail]);
+        $role = $statement->fetchColumn();
+        if ($role == 1){
+            $_SESSION['role'] = 'admin';
+        } else {
+        	$_SESSION['role'] = 'user';
+        }
+
+    } else {
+    	return false;
+    }
+};
 
 
 

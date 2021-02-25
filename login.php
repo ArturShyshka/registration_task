@@ -12,7 +12,7 @@ if ($user == false) {
 	redirect_to("/page_login.php");
 } else {
 
-	$_SESSION['email'] = $email; 			// записую email в сессию
+	$_SESSION['logIN'] = $email; 			// записую email в сессию
 
 	set_flash_message("success" , "Профиль успешно обновлен.");
 	redirect_to("/users.php");
